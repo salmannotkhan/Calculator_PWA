@@ -2,13 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Calculator PWA">
+    <link rel="apple-touch-icon" href="/images/icons/icon-152.png">
+    <meta name="description" content="Progressive Web App Calculator">
+    <meta name="theme-color" content="#fff" />
+    <link rel="manifest" href="/manifest.json">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
     <div class="darkmode">
-        <img src="moon-icon.webp">
+        <img src="moon-icon.webp" alt="darkmode">
     </div>
     <div class="display">
         <div class="input"></div>
@@ -44,5 +51,15 @@
         </div>
     </div>
     <script src="main.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then((reg) => {
+                    console.log('Service worker registered.', reg);
+                    });
+            });
+        }
+    </script>
 </body>
 </html>
