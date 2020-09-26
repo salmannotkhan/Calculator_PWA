@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 20pt;
+  color: var(--font-color);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+body, html {
+  --bg-color: white;
+  --font-color: black;
+  --border-color: lightgray;
+  background-color: var(--bg-color);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+body.dark {
+  --bg-color: black;
+  --font-color: white;
+  --border-color: darkslategray;
+}
+
+body.dark .darkmode img {
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+
+.darkmode {
+  position: absolute;
+  top: 1%;
+  left: 1%;
+  height: 40px;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid var(--border-color);
+  border-radius: 25px;
+}
+
+.darkmode img {
+  height: 25px;
+}
+
+button {
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  border: 1px solid var(--border-color);
+  border-radius: 50px;
+}
+
+.display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.display .input, .display .result {
+  width: 100%;
+  padding: 5px 10px;
+  text-align: right;
+}
+
+.keys {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.keys .col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.keys .col button {
+  padding: 25px 0;
+  margin: 5px 5px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+/*# sourceMappingURL=main.css.map */
