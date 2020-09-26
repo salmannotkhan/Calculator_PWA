@@ -59,6 +59,7 @@ button {
   color: var(--font-color);
   border: 1px solid var(--border-color);
   border-radius: 50px;
+  outline: none;
 }
 
 .display {
@@ -97,7 +98,7 @@ button {
 }
 
 .keys .col button {
-  padding: 25px 0;
+  padding: 20% 0;
   margin: 5px 5px;
   -webkit-box-flex: 1;
       -ms-flex: 1;
