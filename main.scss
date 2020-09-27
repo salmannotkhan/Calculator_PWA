@@ -96,7 +96,7 @@ button {
             padding: 10px 0;
             margin: 5px 5px;
             flex: 1;
-            &:active {
+            &.pressed {
                 background-color: var(--border-color);
             }
         }

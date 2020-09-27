@@ -3,6 +3,9 @@ const result = document.querySelector('.result')
 const btns = document.querySelectorAll('button')
 const bkspc = document.querySelector('button[data-func="bkspc"]')
 const dark = document.querySelector('.darkmode')
+const anim = document.querySelector('.display .animation')
+press = ['mousedown', 'touchstart']
+unpress = ['mouseup', 'touchend']
 var hold
 
 dark.addEventListener('click', () => {
@@ -56,7 +59,6 @@ btns.forEach(btn => {
     })
 })
 
-anim = document.querySelector('.display .animation')
 clearall = () => {
     hold = null
     anim.style.opacity = 1
@@ -69,22 +71,35 @@ clearall = () => {
     }, 600);
 }
 
-// anim.addEventListener('animtionstart', () => {
-// })
-
-['mousedown', 'touchstart'].forEach(evt => {
+press.forEach(evt => {
     bkspc.addEventListener(evt, () => {
         if (!hold) {
             hold = setTimeout(clearall, 1000)
         }
-    });
-});
+    })
+})
 
-['mouseup', 'touchend'].forEach(evt => {
+unpress.forEach(evt => {
     bkspc.addEventListener(evt, () => {
         if (hold) {
             clearTimeout(hold);
             hold = null
         }
     })
-});
+})
+
+press.forEach(evt => {
+    btns.forEach(btn => {
+        btn.addEventListener(evt, function() {
+            this.classList.add('pressed')
+        })
+    })
+})
+
+unpress.forEach(evt => {
+    btns.forEach(btn => {
+        btn.addEventListener(evt, function() {
+            this.classList.remove('pressed')
+        })
+    })
+})

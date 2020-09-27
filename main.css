@@ -151,7 +151,7 @@ button {
           flex: 1;
 }
 
-.keys .col button:active {
+.keys .col button.pressed {
   background-color: var(--border-color);
 }
 
