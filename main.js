@@ -1,7 +1,9 @@
 const input = document.querySelector('.input')
 const result = document.querySelector('.result')
 const btns = document.querySelectorAll('button')
+const bkspc = document.querySelector('button[data-func="bkspc"]')
 const dark = document.querySelector('.darkmode')
+var hold
 
 dark.addEventListener('click', () => {
     if (document.querySelector('body').classList.contains('dark')) {   
@@ -53,3 +55,36 @@ btns.forEach(btn => {
         }
     })
 })
+
+anim = document.querySelector('.display .animation')
+clearall = () => {
+    hold = null
+    anim.style.opacity = 1
+    anim.style.transform = 'scale(2)'
+    setTimeout(() => {
+        result.innerHTML = '&nbsp;'
+        input.innerHTML = ''
+        anim.style.opacity = 0
+        anim.style.transform = 'scale(0)'
+    }, 600);
+}
+
+// anim.addEventListener('animtionstart', () => {
+// })
+
+['mousedown', 'touchstart'].forEach(evt => {
+    bkspc.addEventListener(evt, () => {
+        if (!hold) {
+            hold = setTimeout(clearall, 1000)
+        }
+    });
+});
+
+['mouseup', 'touchend'].forEach(evt => {
+    bkspc.addEventListener(evt, () => {
+        if (hold) {
+            clearTimeout(hold);
+            hold = null
+        }
+    })
+});
