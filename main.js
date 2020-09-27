@@ -99,7 +99,16 @@ press.forEach(evt => {
 unpress.forEach(evt => {
     btns.forEach(btn => {
         btn.addEventListener(evt, function() {
-            this.classList.remove('pressed')
+            setTimeout(() => {
+                this.classList.remove('pressed')
+            }, 200);
         })
+    })
+})
+
+btns.forEach(btn => {
+    btn.addEventListener('contextmenu', function(e){
+        e.preventDefault()
+        return false
     })
 })
